@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Snakes &amp; Ladders</title>
+  <meta name="description" content="Play Snakes and Ladders in your browser with 2 to 4 players or against the computer.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐍</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <h1>Snakes &amp; Ladders</h1>
+    <button id="newGame" class="ghost">New game</button>
+  </header>
+
+  <main class="layout">
+    <section class="board-wrap">
+      <div id="board" class="board" aria-label="Game board, 100 squares"></div>
+    </section>
+
+    <aside class="panel">
+      <ul id="players" class="players" aria-label="Players"></ul>
+      <div class="dice-box">
+        <div id="dice" class="dice" role="img" aria-label="Dice">⚀</div>
+        <button id="rollBtn" class="primary" disabled>Roll dice</button>
+      </div>
+      <p id="status" class="status" aria-live="polite">Start a game to play.</p>
+      <p class="hint">Press <kbd>Space</kbd> to roll. Roll a 6 to play again. You must land exactly on 100 to win.</p>
+      <h2>Game log</h2>
+      <ul id="log" class="log"></ul>
+    </aside>
+  </main>
+
+  <div id="setup" class="modal">
+    <div class="card">
+      <h2>New game</h2>
+      <p>How many players?</p>
+      <div class="choices" id="countChoices">
+        <button data-n="2" class="choice active">2</button>
+        <button data-n="3" class="choice">3</button>
+        <button data-n="4" class="choice">4</button>
+      </div>
+      <label class="check"><input type="checkbox" id="vsCpu"> Play against the computer (you are Red)</label>
+      <button id="startBtn" class="primary">Start game</button>
+    </div>
+  </div>
+
+  <div id="winModal" class="modal hidden">
+    <div class="card">
+      <h2 id="winText">Winner!</h2>
+      <p id="winSub"></p>
+      <button id="againBtn" class="primary">Play again</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
